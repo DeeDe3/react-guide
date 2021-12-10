@@ -6,7 +6,7 @@ function App() {
       id: 'e1',
       title: 'Car Insurance',
       amount: 420.69,
-      date: new Date(2021, 2, 28)
+      date: new Date(2021, 5, 28)
     },
     {
       id: 'e2',
@@ -18,7 +18,7 @@ function App() {
       id: 'e3',
       title: 'Health Insurance',
       amount: 420.420,
-      date: new Date(2020, 2, 28)
+      date: new Date(2020, 7, 28)
     },
     {
       id: 'e4',
