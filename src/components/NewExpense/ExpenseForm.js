@@ -1,7 +1,7 @@
 import { useState } from 'react/cjs/react.development'
 import './ExpenseForm.css'
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
     const [input, setInput] = useState({
         title: '',
         date: '',
@@ -33,6 +33,8 @@ const ExpenseForm = () => {
         const expenseData = {
             ...input
         }
+
+        props.onSaveExpenseData(expenseData)
 
         setInput((prevState) => {
             return {
