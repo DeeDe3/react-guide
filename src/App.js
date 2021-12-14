@@ -15,6 +15,18 @@ const DUMMY_EXPENSES = [
     amount: 420.69,
     date: new Date(2021, 12, 28)
   },
+  {
+    id: 'e5',
+    title: 'Gun',
+    amount: 420.69,
+    date: new Date(2021, 11, 28)
+  },
+  {
+    id: 'e6',
+    title: 'Epstien Island Ticket',
+    amount: 420.69,
+    date: new Date(2021, 9, 28)
+  },
 ]
 
 const App = () => {
