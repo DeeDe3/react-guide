@@ -4,38 +4,25 @@ import ExpensesFilter from './ExpensesFilter'
 import { useState } from 'react'
 import Card from '../UI/Card'
 
-const Expenses = () => {
+const DUMMY_EXPENSES = [
+    {
+        id: 'e3',
+        title: 'Health Insurance',
+        amount: 420.420,
+        date: new Date(2020, 7, 28)
+    },
+    {
+        id: 'e4',
+        title: 'KKK Membership',
+        amount: 420.69,
+        date: new Date(2021, 12, 28)
+    },
+]
+
+const Expenses = (props) => {
     const [year, setYear] = useState('2020')
 
-    const expenses = [
-        {
-            id: 'e1',
-            title: 'Car Insurance',
-            amount: 420.69,
-            date: new Date(2021, 5, 28)
-        },
-        {
-            id: 'e2',
-            title: 'Fire Insurance',
-            amount: 69.69,
-            date: new Date(2021, 2, 30)
-        },
-        {
-            id: 'e3',
-            title: 'Health Insurance',
-            amount: 420.420,
-            date: new Date(2020, 7, 28)
-        },
-        {
-            id: 'e4',
-            title: 'KKK Membership',
-            amount: 420.69,
-            date: new Date(2021, 12, 28)
-        },
-    ]
-
     const filterYear = year => {
-        console.log('In Expense.js')
         console.log('year :', year);
         setYear(year);
     }
@@ -43,7 +30,7 @@ const Expenses = () => {
     return (
         <Card className='expenses'>
             <ExpensesFilter selected={year} onFilterYear={filterYear} />
-            {expenses.map((expense) => (
+            {props.items.map((expense) => (
                 <ExpenseItem
                     title={expense.title}
                     amount={expense.amount}
