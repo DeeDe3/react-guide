@@ -12,21 +12,43 @@ const Expenses = (props) => {
         setYear(year);
     }
 
-    const filterExpense = props.items.filter(expense =>{
+    const filterExpense = props.items.filter(expense => {
         return expense.date.getFullYear().toString() === year
     })
 
+    let expensesContent = <p>No expenses found</p>
+    if (filterExpense.length > 0) {
+        expensesContent = filterExpense.map((expense) => (
+            <ExpenseItem
+                key={expense.id}
+                title={expense.title}
+                amount={expense.amount}
+                date={expense.date}
+            />
+        ))
+    }
+
+    /* 
+        If the conditoin is true, the next statement in the '&&' is outputted(Conditional Content). 
+    */
     return (
         <Card className='expenses'>
-            <ExpensesFilter selected={year} onFilterYear={filterYear} />
-            {filterExpense.map((expense) => (
-                <ExpenseItem
-                    key={expense.id}
-                    title={expense.title}
-                    amount={expense.amount}
-                    date={expense.date}
-                />
-            ))}
+            <ExpensesFilter
+                selected={year}
+                onFilterYear={filterYear}
+            />
+            {expensesContent}
+            {/* {filterExpense.length === 0 && <p>No expenses found</p>}
+            {filterExpense.length > 0 &&
+                filterExpense.map((expense) => (
+                    <ExpenseItem
+                        key={expense.id}
+                        title={expense.title}
+                        amount={expense.amount}
+                        date={expense.date}
+                    />
+                ))
+            } */}
         </Card>
     )
 }
